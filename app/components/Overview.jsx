@@ -14,6 +14,7 @@ var utilities = require('../libs/utilities');
 var constants = require('../libs/constants');
 
 var CloseMarketModal = require('./CloseMarket').CloseMarketModal;
+var CloseMarketTrigger = require('./CloseMarket').CloseMarketTrigger;
 var EtherWarningModal = require('./EtherWarningModal');
 var Welcome = require('./Welcome');
 var Markets = require('./Markets');
