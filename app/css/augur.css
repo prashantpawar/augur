@@ -786,24 +786,27 @@ background: linear-gradient(to bottom, rgba(24,55,111,0) 0%,rgba(24,55,111,0.7) 
     margin-left: -15px;
     margin-right: -15px;
 }
-.holdings .shares-held {
+
+.holdings .shares-held,
+.holdings .pending-shares,
+.holdings .close-market {
     display: inline-block;
+    margin: 0px 8px 0px 0px;
+}
+.holdings .shares-held {
     text-transform: uppercase;
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 3px;
     color: #fff;
-    margin: 0px 0px 0px 0px;
 }
 .holdings .pending-shares {
-    display: inline-block;
     text-transform: uppercase;
     font-size: 12px;
     padding: 1px 6px;
     border-radius: 3px;
     border: 1px solid #d2d2d2;
     color: #717171;
-    margin: 0px 8px 0px 0px;
 }
 
 .holdings .yes.shares-held {
@@ -813,20 +816,46 @@ background: linear-gradient(to bottom, rgba(24,55,111,0) 0%,rgba(24,55,111,0.7) 
     background-color: rgb(194, 64, 64);
 }
 
+.holdings .link {
+    padding: 0;
+}
+
+.holdings .profit-and-loss {
+    color: white;
+    padding: 10px;
+    display: inline-block;
+}
+
+.holdings .list-group-item:first-child .profit-and-loss {
+    border-top-right-radius: 4px;
+}
+.holdings .list-group-item:last-child .profit-and-loss {
+    border-bottom-right-radius: 4px;
+}
+
+.holdings .profit-and-loss.profit {
+    background-color: #2BA328;
+}
+
+.holdings .profit-and-loss.loss {
+    background-color: #9B0C0C;
+}
+
+.holdings .position-details {
+    float: right;
+}
+
 .holdings .description {
-    margin: 0px 75px 0px 40px;
+    float: left;
+    margin: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     float: left;
 }
 .holdings .price {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+    float: left;
     height: 100%;
-    width: 45px;
-    text-align: right;
-    padding: 10px 5px;
+    padding: 10px;
     color: #fff;
     background-color: #18376f;
 }

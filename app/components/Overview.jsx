@@ -117,25 +117,30 @@ var Holding = React.createClass({
   render: function() {
 
     var name = this.props.outcome.id == 1 ? 'no' : 'yes';
-    var className = 'pull-right shares-held ' + name;
+    var className = 'shares-held ' + name;
     var key = this.props.market.id+this.props.outcome.id;
     var percent = this.props.market.price ? utilities.priceToPercent(this.props.market.price) : '-'; 
-    var closeMarket = <span />;
+    var closeMarket = <span className="close-market" />;
     if (this.props.market.expired && this.props.market.authored && !this.props.market.closed) {
-     closeMarket = <CloseMarketTrigger text='close market' params={ { marketId: this.props.market.id.toString(16), branchId: this.props.market.branchId.toString(16) } } />;
+      closeMarket = <CloseMarketTrigger text='close market' params={ { marketId: this.props.market.id.toString(16), branchId: this.props.market.branchId.toString(16) } } />;
     }
     var pendingShares = <span />;
     if (!this.props.outcome.pendingShares.equals(0)) {
       pendingShares = <span className="pull-right pending-shares">{ this.props.outcome.pendingShares.toNumber() } pending</span>;
     }
+
+    var profit = 101;
     
     return (
-      <Link key={ key } className="list-group-item clearfix" to='market' params={ {marketId: this.props.market.id.toString(16) } }>
-        <span className="price">{ percent }</span>
-        <p className="description">{ this.props.market.description }</p>
-        <span className={ className }>{ this.props.outcome.sharesHeld.toNumber() } { name }</span>
-        { pendingShares }
-        { closeMarket }            
+      <Link key={ key } className="link list-group-item clearfix" to='market' params={ {marketId: this.props.market.id.toString(16) } }>
+        <div className="price">{ percent }</div>
+        <div className="description">{ this.props.market.description }</div>
+        <div className="position-details">
+            <span className={ className }>{ this.props.outcome.sharesHeld.toNumber() } { name }</span>
+            { pendingShares }
+            { closeMarket }
+            <span className="profit-and-loss profit">{ profit }</span>
+        </div>
       </Link>
     );
   }

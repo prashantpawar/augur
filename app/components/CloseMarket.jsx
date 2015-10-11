@@ -69,7 +69,7 @@ var CloseMarketTrigger = React.createClass({
   render: function () {
     return (
       <ModalTrigger modal={<CloseMarketModal {...this.props} />}>
-        <Button bsSize='xsmall' bsStyle='primary'>Close Market</Button>
+        <Button className="close-market" bsSize='xsmall' bsStyle='primary'>Close Market</Button>
       </ModalTrigger>
     );
   }
